@@ -13,15 +13,15 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
     private DataAccess _dataaccess;
-       
-    
+
+
     public HomeController(DataAccess dataaccess, ILogger<HomeController> logger)
     {
         _dataaccess = dataaccess;
         _logger = logger;
     }
 
-   
+
     public IActionResult Index()
     {
         return View();
@@ -36,6 +36,7 @@ public class HomeController : Controller
     {
         return View();
     }
+
     public IActionResult BajaMateria()
     {
         return View();
@@ -56,42 +57,48 @@ public class HomeController : Controller
 
         foreach (Materia materia in materias)
         {
-            ViewBag.Materias.Add(new SelectListItem { Text = materia.Descripcion, Value = materia.MateriaId.ToString() });
+            ViewBag.Materias.Add(
+                new SelectListItem { Text = materia.Descripcion, Value = materia.MateriaId.ToString() });
         }
 
         IEnumerable<Course>? courses = _dataaccess.Courses;
-        if( courses == null) {
+        if (courses == null)
+        {
             return View("CoursesList");
-        } else {
+        }
+        else
+        {
             return View("CoursesList", courses);
-        }        
+        }
     }
 
     [HttpGet]
     public IActionResult CoursesGrid()
     {
         IEnumerable<Course>? courses = _dataaccess.Courses;
-        if( courses == null) {
+        if (courses == null)
+        {
             return View("CoursesList");
-        } else {
+        }
+        else
+        {
             return View("CoursesGrid", courses);
-        }        
+        }
     }
 
     [HttpGet]
     public IActionResult MateriaGrid()
     {
-        IEnumerable<Materia>? mat = _dataaccess.Materia;
+        IEnumerable<Materia>? mat = _dataaccess.Materia.Include(materia => materia.Decanato);
         if (mat == null)
         {
             return View("CoursesList");
         }
         else
         {
-            return View("CoursesGrid", mat);
+            return View("MateriasGrid", mat);
         }
     }
-
 
 
     [HttpPost]
@@ -99,10 +106,11 @@ public class HomeController : Controller
     {
         // save course
         _dataaccess.Courses.Add(model);
-        _dataaccess.SaveChanges();        
+        _dataaccess.SaveChanges();
 
         return Ok(new { message = "Course created." });
     }
+
     public IActionResult CrearMat(Materia model)
     {
         // save materia
@@ -114,7 +122,7 @@ public class HomeController : Controller
 
 
     [HttpPost]
-    public IActionResult DeleteMat(int id)     
+    public IActionResult DeleteMat(int id)
     {
         // delete materia
         var materia = getMateria(id);
@@ -122,7 +130,8 @@ public class HomeController : Controller
         {
             _dataaccess.Materia.Remove(materia);
             _dataaccess.SaveChanges();
-        } else
+        }
+        else
         {
             ViewBag.MateriaNoExiste = "Materia no encontrada, id = " + id.ToString();
             return RedirectToAction("BajaMateria");
@@ -131,29 +140,26 @@ public class HomeController : Controller
         return Ok(new { message = "Materia Eliminada." });
     }
 
-    
 
     private Materia getMateria(int id)
     {
         var materia = _dataaccess.Materia.Find(id);
         if (materia == null) //throw new KeyNotFoundException("Materia no encontrada");
         {
-            
         }
-       
+
         return materia;
     }
 
 
-    public Materia getConsMateria (int id)
+    public Materia getConsMateria(int id)
     {
-        var materia  = _dataaccess.Materia.Find(id);
+        var materia = _dataaccess.Materia.Find(id);
         if (materia == null) //throw new KeyNotFoundException("Materia no encontrada");
         {
-
         }
+
         return (materia);
-        
     }
 
     [HttpPost]

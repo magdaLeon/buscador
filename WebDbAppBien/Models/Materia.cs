@@ -5,7 +5,7 @@
     {
         public int? MateriaId { get; set; }
         public int? DeptoId { get; set; }
-        public int? DecanatoId { get; set; }
+        public Decanato? Decanato { get; set; }
         public int? NivelId { get; set; }
         public string? Descripcion { get; set; }
         public string? NivelASU { get; set; }
