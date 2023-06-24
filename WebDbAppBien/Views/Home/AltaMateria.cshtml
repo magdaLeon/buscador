@@ -1,0 +1,57 @@
+﻿@model IEnumerable<WebDbApp.Models.Materia>
+
+@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+@using NonFactors.Mvc.Grid;
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/css/mvc-grid/mvc-grid.css" rel="stylesheet" />
+</head>
+<body>
+
+       <form action="/Home/CrearMat" method="POST">
+            <label for="ccodigo">Periodo:</label>
+            <input type="text" id="Periodo" name="Periodo"><br><br>
+            <label for="ccodigo">Codigo de la Clase:</label>
+            <input type="text" id="codigoClase" name="codigoClase"><br><br>
+            <label for="cdesc">Nombre de la Materia:</label>
+            <input type="text" id="Descripcion" name="Descripcion"><br><br>
+            <label for="cnivel">Nivel Académico:</label>
+            <input type="text" id="nivelId" name="NivelId"><br><br>
+            <label for="cdec">Decanato:</label>
+            <input type="text" id="decanato" name="DecanatoId"><br><br>
+            <label for="cdec">Departamento:</label>
+            <input type="text" id="DeptoId" name="DeptoId"><br><br>
+            <label for="cdec">Nivel ASU:</label>
+            <input type="text" id="NivelASU" name="NivelASU"><br><br>
+            <label for="cdec">Cursos ASU relacionados:</label>
+            <input type="text" size="30" id="cursosASU" name="CursosASU"><br><br>
+            <label for="cdec">Objetivo de Aprendizaje:</label>
+            <input type="text" id="ObjetivoAprendizaje" name="ObjetivoAprendizaje"><br><br>
+            <label for="cdec">Créditos:</label>
+            <input type="text" id="Creditos" name="Creditos"><br><br>
+            <label for="cdec">Fecha Captura:</label>
+            <input type="date" id="FechaIni" name="FechaIni"><br><br>
+            <label for="cdec">Fecha Actualización:</label>
+            <input type="date" id="FechaActualizacion" name="FechaActualizacion"><br><br>
+            <label for="cdec">Versión:</label>
+            <input type="text" id="Version" name="Version"><br><br>
+            <label for="cdec">URL Curso:</label>
+            <input type="text" id="URLCurso" name="URLCurso"><br><br>
+            <label for="cdec"> URL Descarga:</label>
+            <input type="text" id="URLdownload" name="URLdownload"><br><br>
+
+
+
+
+            <input type="submit" value="Submit">
+
+    </form>
+<br>
+<br>
+</body>
+</html>

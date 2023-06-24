@@ -1,0 +1,42 @@
+﻿@model IEnumerable<WebDbApp.Models.Materia>
+
+@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+@using NonFactors.Mvc.Grid;
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/css/mvc-grid/mvc-grid.css" rel="stylesheet" />
+</head>
+<body>
+
+    @(
+        Html.Grid(Model).Build(columns =>
+            {
+                columns.Add(model => model.MateriaId).Titled("Materia Id");
+                columns.Add(model => model.CodigoClase).Titled("Código de la Clase");
+                columns.Add(model => model.NivelId).Titled("Nivel Académico");
+                columns.Add(model => model.DecanatoId).Titled("Decanato");
+                columns.Add(model => model.DeptoId).Titled("Depto Académico");
+              
+                columns.Add(model => model.Descripcion).Titled("Descripción Materia");
+                columns.Add(model => model.NivelASU).Titled("Nivel ASU");
+                columns.Add(model => model.CursosASU).Titled("Cursos ASU");
+                columns.Add(model => model.ObjetivoAprend).Titled("Objetivo de Aprendizaje");
+                columns.Add(model => model.Creditos).Titled("Créditos");
+                columns.Add(model => model.FechaIni).Titled("Fecha Inicial");
+                columns.Add(model => model.FechaActualizacion).Titled("Fecha Actualizada");
+                columns.Add(model => model.Version).Titled("Version");
+                columns.Add(model => model.UrlCurso).Titled("Link Curso");    
+                columns.Add(model => model.UrlDownload).Titled("Link Descarga");
+        })
+        )
+
+
+</body>
+</html>
+
+
