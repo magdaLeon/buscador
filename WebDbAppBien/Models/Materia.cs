@@ -1,12 +1,13 @@
-﻿namespace WebDbApp.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace WebDbApp.Models
 {
 
     public class Materia
     {
         public int? MateriaId { get; set; }
-        public Deptos? DeptoId { get; set; }
-        public Decanato? Decanato { get; set; }
-        public Nivel? NivelId { get; set; }
+        // [ForeignKey(DeptoAcad.)]
+        public DeptoAcad? DeptoId { get; set; }
         public string? Descripcion { get; set; }
         public string? NivelASU { get; set; }
         public string? CursosASU { get; set; }

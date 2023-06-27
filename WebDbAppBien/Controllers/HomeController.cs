@@ -89,7 +89,7 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult MateriaGrid()
     {
-        IEnumerable<Materia>? mat = _dataaccess.Materia.Include(materia => materia.Decanato);
+        IEnumerable<Materia>? mat = _dataaccess.Materia.Include(materia => materia.DeptoId);
         if (mat == null)
         {
             return View("CoursesList");
