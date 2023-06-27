@@ -4,7 +4,8 @@
     {
         public int DecanatoId { get; set; }
         public string? Descripcion { get; set; }
-        public ICollection<Materia> Materias { get; } = new List<Materia>(); // Collection navigation containing dependents
+        public Nivel Nivel { get; set; }
+        public ICollection<Deptos> Departamentos { get; } = new List<Deptos>();
 
     }
 }

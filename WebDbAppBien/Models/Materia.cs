@@ -4,9 +4,9 @@
     public class Materia
     {
         public int? MateriaId { get; set; }
-        public int? DeptoId { get; set; }
+        public Deptos? DeptoId { get; set; }
         public Decanato? Decanato { get; set; }
-        public int? NivelId { get; set; }
+        public Nivel? NivelId { get; set; }
         public string? Descripcion { get; set; }
         public string? NivelASU { get; set; }
         public string? CursosASU { get; set; }
