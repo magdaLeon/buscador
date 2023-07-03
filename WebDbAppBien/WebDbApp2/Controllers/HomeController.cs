@@ -1,11 +1,11 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using WebDbApp.Models;
 using WebDbApp.Miscellaneous;
 using System.Web;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
+using Models;
 
 namespace WebDbApp.Controllers;
 
@@ -89,7 +89,7 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult MateriaGrid()
     {
-        IEnumerable<Materia>? mat = _dataaccess.Materia.Include(materia => materia.DeptoId);
+        IEnumerable<Materia>? mat = _dataaccess.Materia;
         if (mat == null)
         {
             return View("CoursesList");
@@ -98,6 +98,13 @@ public class HomeController : Controller
         {
             return View("MateriasGrid", mat);
         }
+    }
+
+    [HttpGet]
+    public IActionResult NivelGrid()
+    {
+        IEnumerable<NivelAcademico>? niveles = _dataaccess.NivelAcademico;
+        return View("NivelesGrid", niveles);
     }
 
 

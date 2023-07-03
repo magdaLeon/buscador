@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebDbApp2", "WebDbApp2.csproj", "{C358B5D6-212D-4734-9754-F6B589FA3F28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebDbApp2", "WebDbApp2\WebDbApp2.csproj", "{C358B5D6-212D-4734-9754-F6B589FA3F28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{97BA0B6B-03F7-4A62-9922-6524122FD0D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,11 +17,17 @@ Global
 		{C358B5D6-212D-4734-9754-F6B589FA3F28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C358B5D6-212D-4734-9754-F6B589FA3F28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C358B5D6-212D-4734-9754-F6B589FA3F28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97BA0B6B-03F7-4A62-9922-6524122FD0D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97BA0B6B-03F7-4A62-9922-6524122FD0D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97BA0B6B-03F7-4A62-9922-6524122FD0D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97BA0B6B-03F7-4A62-9922-6524122FD0D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1ED87041-0A43-478D-B566-35A7F49B7D8B}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 EndGlobal

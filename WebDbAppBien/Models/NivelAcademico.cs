@@ -1,12 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WebDbApp.Models
+namespace Models
 {
-    using System;
-    using System.Collections.Generic;
-
-
-    public class NivelAcad
+    [Table("NivelAcademico")]
+    public class NivelAcademico
     {
         [Key]
         public int NivelId { get; set; }

@@ -1,4 +1,4 @@
-namespace WebDbApp.Models;
+namespace Models;
 
 public class ErrorViewModel
 {

@@ -1,0 +1,30 @@
+@model IEnumerable<Models.Materia>
+
+@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+@using NonFactors.Mvc.Grid;
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/css/mvc-grid/mvc-grid.css" rel="stylesheet" />
+</head>
+<body>
+
+    @(
+        Html.Grid(Model).Build(columns =>
+        {
+            columns.Add(model => model.MateriaId).Titled("Id");
+            columns.Add(model => model.Descripcion).Titled("Description");
+            // columns.Add(model => model.Decanato.Descripcion).Titled("Decanato");
+
+        })
+        )
+
+
+</body>
+</html>
+
+
