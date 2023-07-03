@@ -1,10 +1,15 @@
-﻿namespace Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Models
 {
 
     public class Materia
     {
-        public int? MateriaId { get; set; }
-        // [ForeignKey(DeptoAcad.)]
+        [Key]
+        public int MateriaId { get; set; }
+        [ForeignKey("Depto")]
+        public int DepartamentoId { get; set; }
         public Departamento? Depto { get; set; }
         public string? Descripcion { get; set; }
         public string? NivelASU { get; set; }
@@ -18,9 +23,5 @@
         public string? UrlDownload { get; set; }
         public string? CodigoClase { get; set; }
         public string? Term { get; set; }
-        /**public string? Term { get; set; }**/
-
-        /** public virtual Course Course { get; set; }
-         public virtual Student Student { get; set; }**/
     }
 }

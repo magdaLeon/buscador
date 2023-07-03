@@ -27,30 +27,21 @@ public class DataAccess : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         //Nivel Academico 
-
         var educacionBasica = new NivelAcademico { NivelId = 1, Descripcion = "EDUCACION BASICA" };
         var educacionMedia = new NivelAcademico { NivelId = 2, Descripcion = "EDUCACION MEDIA" };
         var educacionSuperior = new NivelAcademico { NivelId = 3, Descripcion = "EDUCACION SUPERIOR" };
-
-        modelBuilder.Entity<NivelAcademico>()
-            .HasMany<Decanato>(nivel => nivel.Decanatos)
-            .WithOne()
-            .HasForeignKey(decanato => decanato.NivelId);
-        
-        modelBuilder.Entity<NivelAcademico>()
-            .HasData(educacionBasica, educacionMedia, educacionSuperior);
+        modelBuilder.Entity<NivelAcademico>().HasData(educacionBasica, educacionMedia, educacionSuperior);
 
         //Decanatos
-        //var decanatoDCyT = new Decanato { DecanatoId = 1, Nivel = educacionSuperior, Descripcion = "DCyT" };
-        //modelBuilder.Entity<Decanato>().HasData(decanatoDCyT);
-        //
-        // modelBuilder.Entity<Post>().HasData(
-        //     new { BlogId = 1, PostId = 2, Title = "Second post", Content = "Test 2" });
-        //
-        // modelBuilder.Entity<Post>().OwnsOne(p => p.AuthorName).HasData(
-        //     new { PostId = 1, First = "Andriy", Last = "Svyryd" },
-        //     new { PostId = 2, First = "Diego", Last = "Vega" });
+        var decanatoDCyT = new Decanato { DecanatoId = 1, NivelId = 1, Descripcion = "DCyT" };
+        modelBuilder.Entity<Decanato>().HasData(decanatoDCyT);
+        
+        //Departamentos
+        var computo = new Departamento {DeptoId = 1, DecanatoId = 1, Descripcion = "Ciencias Computacionales"};
+        modelBuilder.Entity<Departamento>().HasData(computo);
 
-        //this.SaveChanges();
+        //Materias
+        var redesMateria = new Materia {MateriaId = 1, DepartamentoId = 1, Descripcion = "Redes I"};
+        modelBuilder.Entity<Materia>().HasData(redesMateria);
     }
 }
