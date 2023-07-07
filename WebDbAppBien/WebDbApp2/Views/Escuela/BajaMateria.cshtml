@@ -1,0 +1,48 @@
+﻿
+@model IEnumerable<Models.Materia>
+
+@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+@using NonFactors.Mvc.Grid;
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Eliminar Materia</title>
+    <link href="~/css/mvc-grid/mvc-grid.css" rel="stylesheet" />
+    <h1>
+        Eliminar Materia
+    </h1>
+        @Html.ValidationSummary()
+
+    <!-- Confirmar borrado de materia.-->
+    <script>
+        function ConfirmarBorrado() {
+            if (confirm("Confirmar borrado de materia.")) {
+                borrarmateria.submit()
+            } else {
+                return
+            }
+        }
+    </script>
+
+</head>
+<body>
+
+    <form id="borrarmateria" name="borrarmateria" action="/Home/DeleteMat" method="POST">
+            <label for="ccodigo">Identificador de la Materia:</label>
+        <input type="number" id="id" name="id" min="1" max="5"><br><br>
+           
+        <p><input type="button" name="buttonDelete" value="Eliminar Materia" onclick="ConfirmarBorrado()" /></p>
+        
+
+    </form>
+
+    <p><a href="~/materia">Regresar al listado de las materias</a></p>
+
+    <p> @ViewBag.MateriaNoExiste</p>
+<br>
+<br>
+</body>
+</html>

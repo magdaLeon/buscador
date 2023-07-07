@@ -1,0 +1,76 @@
+﻿@model Models.Materia
+
+
+@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+@using NonFactors.Mvc.Grid;
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/css/mvc-grid/mvc-grid.css" rel="stylesheet" />
+</head>
+<body>
+    @if (Model != null)
+    {
+
+        <table style='border: 2px #484747 solid; width: 100%'  border='4'>
+            <tbody>
+                <tr style="background-color:#7D0000" style='border: 2px #484747 solid; width: 100%' align='center' border='2'>
+
+                    <td style='border: 2px #484747 solid; width: 100%' border='2'> <font color="white"> Id</font></td>                    
+                    <td style='border: 2px #484747 solid; width: 100%' border='2'> <font color="white"> Nivel Educativo</font></td>
+                    <td style='border: 2px #484747 solid; width: 100%' border='2'><font color="white"> Decanato</font></td>
+                    <td style='border: 2px #484747 solid; width: 100%' border='2'><font color="white"> Departamento</font></td>
+                    <td style='border: 2px #484747 solid; width: 100%' border='2'> <font color="white"> Código Clase</font></td>
+                   
+                    <td style='border: 2px #484747 solid; width: 100%' border='2'> <font color="white"> Descripción</font></td>
+                    <td style='border: 2px #484747 solid; width: 100%' border='2'> <font color="white"> Nivel ASU</font></td>
+                    <td style='border: 2px #484747 solid; width: 100%'  border='2'><font color="white"> Cursos ASU</font></td>
+                    <td style='border: 2px #484747 solid; width: 100%'  border='2'><font color="white"> Objetivo de Aprendizaje</font></td>
+                    <td style='border: 2px #484747 solid; width: 100%'  border='2'> <font color="white"> Créditos</font></td>
+                    <td style='border: 2px #484747 solid; width: 100%'  border='2'> <font color="white"> Ficha inicial</font></td>
+                    <td style='border: 2px #484747 solid; width: 100%'  border='2'><font color="white"> Fecha Actualización</font></td>
+                    <td style='border: 2px #484747 solid; width: 100%'  border='2'><font color="white"> Versión   </font></td>
+                    <td style='border: 2px #484747 solid; width: 100%'  border='2'><font color="white"> URL Curso   </font></td>
+                    <td style='border: 2px #484747 solid; width: 100%'  border='2'><font color="white"> URL Descarga   </font></td>
+                    
+                </tr>
+                <tr style='border: 2px #484747 solid; width: 100%' border='2'>
+                    <td style='border: 2px #484747 solid; width: 100%' border='2'>@Html.DisplayFor(model => model.MateriaId)</td>
+                    @* <td style='border: 2px #484747 solid; width: 100%' border='2'>@Model.NivelId</td> *@
+                    @* <td style='border: 2px #484747 solid; width: 100%' border='2'>@Model.Decanato.Descripcion</td> *@
+                    @* <td style='border: 2px #484747 solid; width: 100%' border='2'>@Model.DeptoId</td> *@
+                    <td style='border: 2px #484747 solid; width: 100%' border='2'>@Model.CodigoClase</td>
+                    
+                    <td style='border: 2px #484747 solid; width: 100%' border='2'>@Model.Descripcion</td>
+                    <td style='border: 2px #484747 solid; width: 100%' border='2'>@Model.NivelASU</td>
+                    <td style='border: 2px #484747 solid; width: 100%' border='2'>@Model.CursosASU</td>
+                    <td style='border: 2px #484747 solid; width: 100%' border='2'>@Model.ObjetivoAprend</td>
+                    <td style='border: 2px #484747 solid; width: 100%' border='2'>@Model.Creditos</td>
+                    <td style='border: 2px #484747 solid; width: 100%' border='2'>@Model.FechaIni</td>
+                    <td style='border: 2px #484747 solid; width: 100%' border='2'>@Model.FechaActualizacion</td>
+                    <td style='border: 2px #484747 solid; width: 50%' border='2'>@Model.Version</td>
+                    <td style='border: 2px #484747 solid; width: 50%' border='2'><a href="@Model.UrlCurso"> @Model.UrlCurso</a></td>
+                    <td style='border: 2px #484747 solid; width: 50%' border='2'><a href="@Model.UrlDownload"> @Model.UrlDownload</a></td>
+                </tr>
+               
+            </tbody>
+        </table>
+
+
+    }
+    else
+    {
+        <div>No se encontró la materia en la base de datos</div>
+    }
+
+
+
+       
+</body>
+</html>
+
+

@@ -1,11 +1,7 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using WebDbApp.Miscellaneous;
-using System.Web;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
 using Models;
+using WebDbApp.Miscellaneous;
 
 namespace WebDbApp.Controllers;
 
@@ -41,79 +37,6 @@ public class HomeController : Controller
     {
         return View();
     }
-
-    [HttpGet]
-    public IActionResult MateriaGrid()
-    {
-        IEnumerable<Materia>? mat = _dataaccess.Materia;
-        return View("MateriasGrid", mat);
-    }
-
-    [HttpGet]
-    public IActionResult NivelGrid()
-    {
-        IEnumerable<NivelAcademico>? niveles = _dataaccess.NivelAcademico;
-        return View("NivelesGrid", niveles);
-    }
-
-    public IActionResult CrearMat(Materia model)
-    {
-        // save materia
-        _dataaccess.Materia.Add(model);
-        _dataaccess.SaveChanges();
-
-        return Ok(new { message = "Materia Creada." });
-    }
-
-
-    [HttpPost]
-    public IActionResult DeleteMat(int id)
-    {
-        // delete materia
-        var materia = getMateria(id);
-        if (materia != null)
-        {
-            _dataaccess.Materia.Remove(materia);
-            _dataaccess.SaveChanges();
-        }
-        else
-        {
-            ViewBag.MateriaNoExiste = "Materia no encontrada, id = " + id.ToString();
-            return RedirectToAction("BajaMateria");
-        }
-
-        return Ok(new { message = "Materia Eliminada." });
-    }
-
-
-    private Materia getMateria(int id)
-    {
-        var materia = _dataaccess.Materia.Find(id);
-        if (materia == null) //throw new KeyNotFoundException("Materia no encontrada");
-        {
-        }
-
-        return materia;
-    }
-
-
-    public Materia getConsMateria(int id)
-    {
-        var materia = _dataaccess.Materia.Find(id);
-        if (materia == null) //throw new KeyNotFoundException("Materia no encontrada");
-        {
-        }
-
-        return (materia);
-    }
-
-    [HttpPost]
-    public IActionResult ConsultarMateriaGrid(int id)
-    {
-        var mat = getConsMateria(id);
-        return View("ConsultaMateria", mat);
-    }
-
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

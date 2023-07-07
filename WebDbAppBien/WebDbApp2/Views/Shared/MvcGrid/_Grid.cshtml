@@ -18,7 +18,7 @@
                 {
                     String applied = (column.Filter.First ?? column.Filter.Second) == null ? "" : " applied";
 
-                    <th@(column.AsAttributes())>
+                    <th @(column.AsAttributes())>
                     @if (column.Filter.IsEnabled == true && !String.IsNullOrEmpty(column.Filter.Name) && Model.FilterMode != GridFilterMode.Row)
                     {
                         if (Model.FilterMode == GridFilterMode.Header)

@@ -1,5 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    var minDate= new DateTime(DateTime.Now.Year,DateTime.Now.Month,05);
+    var maxDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 27);
+    var data = new string[] { "Badminton", "Basketball", "Cricket", "Football", "Golf", "Gymnastics", "Hockey", "Tennis" };
 }
 <html>
 <div class="text-center">
@@ -7,30 +10,21 @@
     <img src="images/logoUAGASU.jpg">
 </div>
 
-<form action="/Home/Create" method="POST">
-  <label for="cname">Course name:</label>
-  <input type="text" id="Name" name="Name"><br><br>
-  <label for="cdesc">Description:</label>
-  <input type="text" id="Description" name="Description"><br><br>
-  <input type="submit" value="Submit">
-</form>
-<br><br>
-<p><a href="/Home/CoursesList">See all courses</a></p>
+<ejs-calendar id="calendar" min="minDate" max="maxDate"></ejs-calendar>
 
-<br><br>
-<p><a href="/Home/CoursesGrid">See all courses list using Grid</a></p>
+<div tabindex="0" class="e-card" id="basic">
+    <div class="e-card-header">
+        <div class="e-card-header-caption">
+            <div class="e-card-header-title">Advanced UWP</div>
+        </div>
+    </div>
+    <div class="e-card-content">
+        Advanced UWP: Communicating with Windows 10 and Other Apps, the second in a five-part series written by Succinctly series
+        author Matteo Pagani. To download the complete white paper, and other papers in the series, visit
+        the White Paper section of Syncfusion’s Technology Resource Portal.
+    </div>
+</div>
 
-<form action="/Home/CrearMat" method="POST">
-    <label for="cname">Id de la Materia:</label>
-    <input type="text" id="Id" name="Id"><br><br>
-    <label for="cdesc">Nombre de la Materia:</label>
-    <input type="text" id="Descripcion" name="Descripcion"><br><br>
-    <input type="submit" value="Submit">
-</form>
+<ejs-combobox id="games" dataSource="data" placeholder="Select a game"></ejs-combobox>
 
-
-
-<br>
-<br>
-<p><a href="/materia">Ver las materias de mi tabla</a></p>
 </html>
