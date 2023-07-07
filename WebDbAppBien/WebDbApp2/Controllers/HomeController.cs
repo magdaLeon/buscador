@@ -43,61 +43,10 @@ public class HomeController : Controller
     }
 
     [HttpGet]
-    public IActionResult GetAll()
-    {
-        IEnumerable<Course> courses = _dataaccess.Courses;
-        return Ok(courses);
-    }
-
-    [HttpGet]
-    public IActionResult CoursesList()
-    {
-        IEnumerable<Materia>? materias = _dataaccess.Materia;
-        ViewBag.Materias = new List<SelectListItem> { };
-
-        foreach (Materia materia in materias)
-        {
-            ViewBag.Materias.Add(
-                new SelectListItem { Text = materia.Descripcion, Value = materia.MateriaId.ToString() });
-        }
-
-        IEnumerable<Course>? courses = _dataaccess.Courses;
-        if (courses == null)
-        {
-            return View("CoursesList");
-        }
-        else
-        {
-            return View("CoursesList", courses);
-        }
-    }
-
-    [HttpGet]
-    public IActionResult CoursesGrid()
-    {
-        IEnumerable<Course>? courses = _dataaccess.Courses;
-        if (courses == null)
-        {
-            return View("CoursesList");
-        }
-        else
-        {
-            return View("CoursesGrid", courses);
-        }
-    }
-
-    [HttpGet]
     public IActionResult MateriaGrid()
     {
         IEnumerable<Materia>? mat = _dataaccess.Materia;
-        if (mat == null)
-        {
-            return View("CoursesList");
-        }
-        else
-        {
-            return View("MateriasGrid", mat);
-        }
+        return View("MateriasGrid", mat);
     }
 
     [HttpGet]
@@ -105,17 +54,6 @@ public class HomeController : Controller
     {
         IEnumerable<NivelAcademico>? niveles = _dataaccess.NivelAcademico;
         return View("NivelesGrid", niveles);
-    }
-
-
-    [HttpPost]
-    public IActionResult Create(Course model)
-    {
-        // save course
-        _dataaccess.Courses.Add(model);
-        _dataaccess.SaveChanges();
-
-        return Ok(new { message = "Course created." });
     }
 
     public IActionResult CrearMat(Materia model)
@@ -173,14 +111,7 @@ public class HomeController : Controller
     public IActionResult ConsultarMateriaGrid(int id)
     {
         var mat = getConsMateria(id);
-        if (mat == null)
-        {
-            return View("CoursesList");
-        }
-        else
-        {
-            return View("ConsultaMateria", mat);
-        }
+        return View("ConsultaMateria", mat);
     }
 
 

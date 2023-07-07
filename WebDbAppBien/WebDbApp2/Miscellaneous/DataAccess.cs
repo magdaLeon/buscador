@@ -18,7 +18,6 @@ public class DataAccess : DbContext
         options.UseSqlite("Data Source=training.sqlite");
     }
 
-    public DbSet<Course>? Courses { get; set; }
     public DbSet<Materia>? Materia { get; set; }
     public DbSet<NivelAcademico> NivelAcademico { get; set; }
     public DbSet<Decanato>? Decanato { get; set; }

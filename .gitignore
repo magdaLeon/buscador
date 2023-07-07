@@ -18,3 +18,5 @@ WebDbAppBien/WebDbApp2/obj/
 WebDbAppBien/Models/obj/
 
 WebDbAppBien/Models/bin/
+
+*.sqlite
