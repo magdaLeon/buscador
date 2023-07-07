@@ -1,6 +1,6 @@
 using Models;
 
-namespace WebDbApp.Miscellaneous;
+namespace WebDbApp2.Miscellaneous;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -18,9 +18,9 @@ public class DataAccess : DbContext
         options.UseSqlite("Data Source=training.sqlite");
     }
 
-    public DbSet<Materia>? Materia { get; set; }
+    public DbSet<Materia> Materia { get; set; }
     public DbSet<NivelAcademico> NivelAcademico { get; set; }
-    public DbSet<Decanato>? Decanato { get; set; }
+    public DbSet<Decanato> Decanato { get; set; }
     public DbSet<Departamento> Departamento { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

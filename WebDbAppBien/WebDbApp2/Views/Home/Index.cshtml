@@ -1,30 +1,33 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
-    var minDate= new DateTime(DateTime.Now.Year,DateTime.Now.Month,05);
-    var maxDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 27);
-    var data = new string[] { "Badminton", "Basketball", "Cricket", "Football", "Golf", "Gymnastics", "Hockey", "Tennis" };
+    // ViewData["Title"] = "Home Page";
+    // var minDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 05);
+    // var maxDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 27);
+    // var data = new string[] { "Badminton", "Basketball", "Cricket", "Football", "Golf", "Gymnastics", "Hockey", "Tennis" };
 }
-<html>
-<div class="text-center">
-    <h1 class="display-4">Bienvenido al Buscador de Cursos de Materia Única</h1>
-    <img src="images/logoUAGASU.jpg">
-</div>
-
-<ejs-calendar id="calendar" min="minDate" max="maxDate"></ejs-calendar>
-
-<div tabindex="0" class="e-card" id="basic">
-    <div class="e-card-header">
-        <div class="e-card-header-caption">
-            <div class="e-card-header-title">Advanced UWP</div>
+<html lang="es">
+<div id="buscador" class="container-fluid">
+    <nav class="navbar navbar-default">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="nivelAcademicoDrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Nivel Académico
+            </button>
+            <div class="dropdown-menu" aria-labelledby="nivelAcademicoDrop">
+                <p class="dropdown-item">some stuff</p>
+                <p class="dropdown-item">some stuff2</p>
+                <p class="dropdown-item">some stuff3</p>
+                
+            </div>
         </div>
-    </div>
-    <div class="e-card-content">
-        Advanced UWP: Communicating with Windows 10 and Other Apps, the second in a five-part series written by Succinctly series
-        author Matteo Pagani. To download the complete white paper, and other papers in the series, visit
-        the White Paper section of Syncfusion’s Technology Resource Portal.
-    </div>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="Decanato" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Decanato
+            </button>
+            <ul class="dropdown-menu-dark" aria-labelledby="dropdownMenu">
+                <li class="dropdown-item">some stuff decanato</li>
+            </ul>
+        </div>
+    </nav>
 </div>
 
-<ejs-combobox id="games" dataSource="data" placeholder="Select a game"></ejs-combobox>
 
 </html>

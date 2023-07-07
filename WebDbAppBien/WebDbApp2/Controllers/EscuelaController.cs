@@ -1,22 +1,20 @@
 using Microsoft.AspNetCore.Mvc;
 using Models;
-using WebDbApp.Miscellaneous;
+using WebDbApp2.Miscellaneous;
 
-namespace WebDbApp.Controllers;
+namespace WebDbApp2.Controllers;
 
 [ApiController]
 [Route("api/[controller]/[action]")]
 [Produces("application/json")]
 public class EscuelaController : Controller
 {
-        private readonly ILogger<HomeController> _logger;
-    private DataAccess _dataaccess;
+    private readonly DataAccess _dataaccess;
 
 
-    public EscuelaController(DataAccess dataaccess, ILogger<HomeController> logger)
+    public EscuelaController(DataAccess dataaccess)
     {
         _dataaccess = dataaccess;
-        _logger = logger;
     }
 
 
@@ -34,7 +32,7 @@ public class EscuelaController : Controller
         _dataaccess.Materia.Add(model);
         _dataaccess.SaveChanges();
 
-        return Ok(new { message = "Materia Creada.", model});
+        return Ok(new { message = "Materia Creada.", model });
     }
 
 
@@ -42,8 +40,8 @@ public class EscuelaController : Controller
     public IActionResult DeleteMat(int id)
     {
         // delete materia
-        var materia = getMateria(id);
-        if (materia != null)
+        var materia = GetMateria(id);
+        if ( String.IsNullOrEmpty(materia.Descripcion))
         {
             _dataaccess.Materia.Remove(materia);
             _dataaccess.SaveChanges();
@@ -59,11 +57,12 @@ public class EscuelaController : Controller
 
 
     [HttpGet]
-    private Materia getMateria(int id)
+    private Materia GetMateria(int id)
     {
         var materia = _dataaccess.Materia.Find(id);
         if (materia == null) //throw new KeyNotFoundException("Materia no encontrada");
         {
+            return new Materia();
         }
 
         return materia;
@@ -71,11 +70,12 @@ public class EscuelaController : Controller
 
 
     [HttpGet]
-    public Materia getConsMateria(int id)
+    public Materia GetConsMateria(int id)
     {
         var materia = _dataaccess.Materia.Find(id);
         if (materia == null) //throw new KeyNotFoundException("Materia no encontrada");
         {
+            return new Materia();
         }
 
         return (materia);
@@ -84,7 +84,7 @@ public class EscuelaController : Controller
     [HttpPost]
     public IActionResult ConsultarMateriaGrid(int id)
     {
-        var mat = getConsMateria(id);
+        var mat = GetConsMateria(id);
         return View("ConsultaMateria", mat);
     }
 }

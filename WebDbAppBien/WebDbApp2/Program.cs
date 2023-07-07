@@ -1,4 +1,4 @@
-using WebDbApp.Miscellaneous;
+using WebDbApp2.Miscellaneous;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<DataAccess>(); // Tell .Net what is our dataaccess class 

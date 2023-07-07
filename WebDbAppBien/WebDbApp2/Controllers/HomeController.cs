@@ -1,9 +1,9 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Models;
-using WebDbApp.Miscellaneous;
+using WebDbApp2.Miscellaneous;
 
-namespace WebDbApp.Controllers;
+namespace WebDbApp2.Controllers;
 
 public class HomeController : Controller
 {
