@@ -1,33 +1,243 @@
-﻿@{
+﻿@using WebDbApp2.BusinessLogic
+@using WebDbApp2.Miscellaneous
+@{
     // ViewData["Title"] = "Home Page";
-    // var minDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 05);
-    // var maxDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 27);
-    // var data = new string[] { "Badminton", "Basketball", "Cricket", "Football", "Golf", "Gymnastics", "Hockey", "Tennis" };
+    var helper = new LogicHelper(new DataAccess());
+    var niveles = helper.GetNivelesAcademicos();
 }
 <html lang="es">
-<div id="buscador" class="container-fluid">
-    <nav class="navbar navbar-default">
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="nivelAcademicoDrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Nivel Académico
-            </button>
-            <div class="dropdown-menu" aria-labelledby="nivelAcademicoDrop">
-                <p class="dropdown-item">some stuff</p>
-                <p class="dropdown-item">some stuff2</p>
-                <p class="dropdown-item">some stuff3</p>
-                
-            </div>
-        </div>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="Decanato" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Decanato
-            </button>
-            <ul class="dropdown-menu-dark" aria-labelledby="dropdownMenu">
-                <li class="dropdown-item">some stuff decanato</li>
-            </ul>
-        </div>
+<head>
+    <link rel="stylesheet" href="~/css/dropdownSelect.css"/>
+    <link rel="stylesheet" href="~/css/card.css"/>
+
+</head>
+@* SEARCH STUFF WIP*@
+<section id="search">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <ul class="navbar-nav">
+            <li class="dropdown nav-item">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="nivelAcademicoDrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Nivel Académico
+                </button>
+                <div class="dropdown-menu" aria-labelledby="nivelAcademicoDrop">
+                    <p class="dropdown-item">some stuff</p>
+                    <p class="dropdown-item">some stuff2</p>
+                    <p class="dropdown-item">some stuff3</p>
+
+                </div>
+            </li>
+            <li class="dropdown nav-item">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="decanatoDrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Decanato
+                </button>
+                <div class="dropdown-menu" aria-labelledby="nivelAcademicoDrop">
+                    <p class="dropdown-item">some stuff</p>
+                    <p class="dropdown-item">some stuff2</p>
+                    <p class="dropdown-item">some stuff3</p>
+
+                </div>
+            </li>
+        </ul>
     </nav>
-</div>
+</section>
+@* SEARCH 2 STUFF *@
+<section id="Search2">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Nivel Academico</th>
+            <th scope="col">Decanato</th>
+            <th scope="col">Departamento</th>
+            <th scope="col">Materia</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td id="selectNivel">
+                <select name="selectNivel" aria-label="label for the select">
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                    <option value="4">Four</option>
+                </select>
+            </td>
+            <td id="selectDecanato">
+                <select name="selectDecanato" aria-label="label for the select2">
+                    <option value="1">5</option>
+                    <option value="2">6</option>
+                    <option value="3">7</option>
+                    <option value="4">Four</option>
+                </select>
+            </td>
+            <td id="selectDepartamento">
+                <select name="selectDepartamento" aria-label="label for the select3">
+                    <option value="1">9</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                    <option value="4">Four</option>
+                </select>
+            </td>
+            <td id="selectMateria">
+                <select name="selectMateria" aria-label="label for the select4">
+                    <option value="1">13</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                    <option value="4">Four</option>
+                </select>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+@* COURSES GRID STUFF *@
+<section id="materias" class="wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?tech,street');">
+                    <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+                    <div class="card-img-overlay d-flex flex-column">
+                        <div class="card-body">
+                            <small class="card-meta mb-2">Thought Leadership</small>
+                            <h4 class="card-title mt-0 ">
+                                <a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur dipisi?</a>
+                            </h4>
+                            <small><i class="far fa-clock"></i> October 15, 2020</small>
+                        </div>
+                        <div class="card-footer">
+                            <div class="media">
+                                <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png" alt="Generic placeholder image" style="max-width:50px">
+                                <div class="media-body">
+                                    <h6 class="my-0 text-white d-block">Oz Coruhlu</h6>
+                                    <small>Director of UI/UX</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?tree,nature');">
+                    <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tree,nature" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+                    <div class="card-img-overlay d-flex flex-column">
+                        <div class="card-body">
+                            <small class="card-meta mb-2">Thought Leadership</small>
+                            <h4 class="card-title mt-0 ">
+                                <a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur dipisi?</a>
+                            </h4>
+                            <small><i class="far fa-clock"></i> October 15, 2020</small>
+                        </div>
+                        <div class="card-footer">
+                            <div class="media">
+                                <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png" alt="Generic placeholder image" style="max-width:50px">
+                                <div class="media-body">
+                                    <h6 class="my-0 text-white d-block">Oz Coruhlu</h6>
+                                    <small>Director of UI/UX</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?computer,design');">
+                    <img class="card-img d-none" src="https://source.unsplash.com/600x900/?computer,design" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+                    <div class="card-img-overlay d-flex flex-column">
+                        <div class="card-body">
+                            <small class="card-meta mb-2">Thought Leadership</small>
+                            <h4 class="card-title mt-0 ">
+                                <a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur dipisi?</a>
+                            </h4>
+                            <small><i class="far fa-clock"></i> October 15, 2020</small>
+                        </div>
+                        <div class="card-footer">
+                            <div class="media">
+                                <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png" alt="Generic placeholder image" style="max-width:50px">
+                                <div class="media-body">
+                                    <h6 class="my-0 text-white d-block">Oz Coruhlu</h6>
+                                    <small>Director of UI/UX</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?tech,street');">
+                    <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+                    <div class="card-img-overlay d-flex flex-column">
+                        <div class="card-body">
+                            <small class="card-meta mb-2">Thought Leadership</small>
+                            <h4 class="card-title mt-0 ">
+                                <a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur dipisi?</a>
+                            </h4>
+                            <small><i class="far fa-clock"></i> October 15, 2020</small>
+                        </div>
+                        <div class="card-footer">
+                            <div class="media">
+                                <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png" alt="Generic placeholder image" style="max-width:50px">
+                                <div class="media-body">
+                                    <h6 class="my-0 text-white d-block">Oz Coruhlu</h6>
+                                    <small>Director of UI/UX</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?tree,nature');">
+                    <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tree,nature" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+                    <div class="card-img-overlay d-flex flex-column">
+                        <div class="card-body">
+                            <small class="card-meta mb-2">Thought Leadership</small>
+                            <h4 class="card-title mt-0 ">
+                                <a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur dipisi?</a>
+                            </h4>
+                            <small><i class="far fa-clock"></i> October 15, 2020</small>
+                        </div>
+                        <div class="card-footer">
+                            <div class="media">
+                                <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png" alt="Generic placeholder image" style="max-width:50px">
+                                <div class="media-body">
+                                    <h6 class="my-0 text-white d-block">Oz Coruhlu</h6>
+                                    <small>Director of UI/UX</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?computer,design');">
+                    <img class="card-img d-none" src="https://source.unsplash.com/600x900/?computer,design" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+                    <div class="card-img-overlay d-flex flex-column">
+                        <div class="card-body">
+                            <small class="card-meta mb-2">Thought Leadership</small>
+                            <h4 class="card-title mt-0 ">
+                                <a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur dipisi?</a>
+                            </h4>
+                            <small><i class="far fa-clock"></i> October 15, 2020</small>
+                        </div>
+                        <div class="card-footer">
+                            <div class="media">
+                                <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png" alt="Generic placeholder image" style="max-width:50px">
+                                <div class="media-body">
+                                    <h6 class="my-0 text-white d-block">Oz Coruhlu</h6>
+                                    <small>Director of UI/UX</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
 
 
 </html>

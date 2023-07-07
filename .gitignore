@@ -20,3 +20,7 @@ WebDbAppBien/Models/obj/
 WebDbAppBien/Models/bin/
 
 *.sqlite
+
+WebDbAppBien/WebDbApp2/training.sqlite-shm
+
+WebDbAppBien/WebDbApp2/training.sqlite-wal
