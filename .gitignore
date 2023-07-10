@@ -6,3 +6,13 @@ WebDbAppBien/.vscode/
 WebDbAppBien/bin/
 
 WebDbAppBien/obj/
+
+WebDbAppBien/WebDbApp2/bin/
+
+WebDbAppBien/WebDbApp2/obj/
+
+WebDbAppBien/Models/bin/
+
+WebDbAppBien/Models/obj/
+
+WebDbAppBien/WebDbApp2/training.sqlite
