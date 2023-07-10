@@ -18,12 +18,7 @@ public class EscuelaController : Controller
     }
 
 
-    [HttpGet]
-    public IActionResult Niveles()
-    {
-        var niveles = _dataaccess.NivelAcademico.ToList();
-        return Ok(niveles);
-    }
+
 
     [HttpPost]
     public IActionResult CrearMat(Materia model)

@@ -10,7 +10,7 @@ namespace Models
         public int MateriaId { get; set; }
         [ForeignKey("Depto")]
         public int DepartamentoId { get; set; }
-        public Departamento? Depto { get; set; }
+        public Departamento Depto { get; set; }
         public string? Descripcion { get; set; }
         public string? NivelAsu { get; set; }
         public string? CursosAsu { get; set; }
@@ -22,6 +22,6 @@ namespace Models
         public string? UrlCurso { get; set;}
         public string? UrlDownload { get; set; }
         public string? CodigoClase { get; set; }
-        public string? Term { get; set; }
+        public string? Periodo { get; set; }
     }
 }

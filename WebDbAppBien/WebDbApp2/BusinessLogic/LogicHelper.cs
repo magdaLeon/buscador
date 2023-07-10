@@ -14,9 +14,5 @@ public class LogicHelper
     }
     
     
-    public List<NivelAcademico> GetNivelesAcademicos()
-    {
-        var niveles = _dataaccess.NivelAcademico.ToList();
-        return niveles;
-    }
+
 }

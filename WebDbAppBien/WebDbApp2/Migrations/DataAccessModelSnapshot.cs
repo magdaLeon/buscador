@@ -25,12 +25,7 @@ namespace WebDbApp2.Migrations
                     b.Property<string>("Descripcion")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("NivelId")
-                        .HasColumnType("INTEGER");
-
                     b.HasKey("DecanatoId");
-
-                    b.HasIndex("NivelId");
 
                     b.ToTable("Decanato");
 
@@ -38,8 +33,42 @@ namespace WebDbApp2.Migrations
                         new
                         {
                             DecanatoId = 1,
-                            Descripcion = "DCyT",
-                            NivelId = 1
+                            Descripcion = "Diseño, Ciencia y Tecnología"
+                        },
+                        new
+                        {
+                            DecanatoId = 2,
+                            Descripcion = "CIENCIAS SOCIALES ECONÓMICA Y ADMINISTRATIVAS"
+                        },
+                        new
+                        {
+                            DecanatoId = 3,
+                            Descripcion = "CIENCIAS DE LA SALUD"
+                        },
+                        new
+                        {
+                            DecanatoId = 4,
+                            Descripcion = "POSGRADO"
+                        },
+                        new
+                        {
+                            DecanatoId = 5,
+                            Descripcion = "EDUCACIÓN CONTINUA"
+                        },
+                        new
+                        {
+                            DecanatoId = 6,
+                            Descripcion = "EDUCACIÓN MEDIA SUPERIOR"
+                        },
+                        new
+                        {
+                            DecanatoId = 7,
+                            Descripcion = "EDUCACIÓN BÁSICA"
+                        },
+                        new
+                        {
+                            DecanatoId = 8,
+                            Descripcion = "PROGRAMAS EN LINEA"
                         });
                 });
 
@@ -66,7 +95,37 @@ namespace WebDbApp2.Migrations
                         {
                             DeptoId = 1,
                             DecanatoId = 1,
-                            Descripcion = "Ciencias Computacionales"
+                            Descripcion = "ARTE Y DISEÑO"
+                        },
+                        new
+                        {
+                            DeptoId = 2,
+                            DecanatoId = 1,
+                            Descripcion = "BIOTECNOLOGICAS Y AMBIENTALES"
+                        },
+                        new
+                        {
+                            DeptoId = 3,
+                            DecanatoId = 1,
+                            Descripcion = "Computación e Industrial"
+                        },
+                        new
+                        {
+                            DeptoId = 4,
+                            DecanatoId = 1,
+                            Descripcion = "DISEÑO Y CONSTRUCCION"
+                        },
+                        new
+                        {
+                            DeptoId = 5,
+                            DecanatoId = 1,
+                            Descripcion = "ELECTROMECANICA"
+                        },
+                        new
+                        {
+                            DeptoId = 6,
+                            DecanatoId = 1,
+                            Descripcion = "INNOVACIÓN SOSTENIBLE"
                         });
                 });
 
@@ -82,7 +141,7 @@ namespace WebDbApp2.Migrations
                     b.Property<string>("Creditos")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("CursosASU")
+                    b.Property<string>("CursosAsu")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("DepartamentoId")
@@ -97,13 +156,13 @@ namespace WebDbApp2.Migrations
                     b.Property<string>("FechaIni")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("NivelASU")
+                    b.Property<string>("NivelAsu")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ObjetivoAprend")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Term")
+                    b.Property<string>("Periodo")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("UrlCurso")
@@ -125,51 +184,33 @@ namespace WebDbApp2.Migrations
                         new
                         {
                             MateriaId = 1,
+                            CodigoClase = "7032",
                             DepartamentoId = 1,
-                            Descripcion = "Redes I"
-                        });
-                });
-
-            modelBuilder.Entity("Models.NivelAcademico", b =>
-                {
-                    b.Property<int>("NivelId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Descripcion")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("NivelId");
-
-                    b.ToTable("NivelAcademico");
-
-                    b.HasData(
-                        new
-                        {
-                            NivelId = 1,
-                            Descripcion = "EDUCACION BASICA"
+                            Descripcion = "Creatividad para el diseño - 7032, SM: 2022, Jul – Dic",
+                            Periodo = "2222",
+                            UrlCurso = "https://uag.instructure.com/courses/5021",
+                            UrlDownload = "https://uag.instructure.com/courses/5021/content_exports"
                         },
                         new
                         {
-                            NivelId = 2,
-                            Descripcion = "EDUCACION MEDIA"
+                            MateriaId = 2,
+                            CodigoClase = "840",
+                            DepartamentoId = 2,
+                            Descripcion = "Taller de Eval de Form Term - 840, CT: 2021, May – Ago",
+                            Periodo = "2132",
+                            UrlCurso = "https://uag.instructure.com/courses/21786",
+                            UrlDownload = "https://uag.instructure.com/courses/21786/content_exports"
                         },
                         new
                         {
-                            NivelId = 3,
-                            Descripcion = "EDUCACION SUPERIOR"
+                            MateriaId = 3,
+                            CodigoClase = "4406",
+                            DepartamentoId = 3,
+                            Descripcion = "Creatividad para el diseño - 7032, SM: 2022, Jul – Dic",
+                            Periodo = "2221",
+                            UrlCurso = "https://uag.instructure.com/courses/2115",
+                            UrlDownload = "https://uag.instructure.com/courses/2115/content_exports"
                         });
-                });
-
-            modelBuilder.Entity("Models.Decanato", b =>
-                {
-                    b.HasOne("Models.NivelAcademico", "NivelAcademico")
-                        .WithMany("Decanatos")
-                        .HasForeignKey("NivelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("NivelAcademico");
                 });
 
             modelBuilder.Entity("Models.Departamento", b =>
@@ -202,11 +243,6 @@ namespace WebDbApp2.Migrations
             modelBuilder.Entity("Models.Departamento", b =>
                 {
                     b.Navigation("Materias");
-                });
-
-            modelBuilder.Entity("Models.NivelAcademico", b =>
-                {
-                    b.Navigation("Decanatos");
                 });
 #pragma warning restore 612, 618
         }

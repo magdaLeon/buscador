@@ -5,6 +5,7 @@ builder.Services.AddDbContext<DataAccess>(); // Tell .Net what is our dataaccess
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
