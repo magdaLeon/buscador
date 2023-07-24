@@ -53,7 +53,9 @@ public class MateriaController : Controller
             Periodo = materia.Periodo,
             Descripcion = materia.Descripcion,
             UrlCurso = materia.UrlCurso,
-            UrlDownload = materia.UrlDownload
+            UrlDownload = materia.UrlDownload,
+            NivelAsu = materia.NivelAsu,
+            Version = materia.Version
         };
     }
 }

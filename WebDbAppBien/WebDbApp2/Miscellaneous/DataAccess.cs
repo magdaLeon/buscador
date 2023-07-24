@@ -66,13 +66,17 @@ public class DataAccess : DbContext
 
         //Materias
         var creatividad = new Materia { MateriaId = 1, DepartamentoId = 1, Descripcion = "Creatividad para el diseño - 7032, SM: 2022, Jul – Dic", Periodo = "2222",
-            CodigoClase = "7032", UrlCurso = "https://uag.instructure.com/courses/5021", UrlDownload = "https://uag.instructure.com/courses/5021/content_exports"};
+            CodigoClase = "7032", UrlCurso = "https://uag.instructure.com/courses/5021", UrlDownload = "https://uag.instructure.com/courses/5021/content_exports",
+            NivelAsu = "Haste", Version = "v1"
+        };
         
         var redes = new Materia { MateriaId = 2, DepartamentoId = 2, Descripcion = "Taller de Eval de Form Term - 840, CT: 2021, May – Ago", Periodo = "2132",
-            CodigoClase = "840", UrlCurso = "https://uag.instructure.com/courses/21786", UrlDownload = "https://uag.instructure.com/courses/21786/content_exports"};
+            CodigoClase = "840", UrlCurso = "https://uag.instructure.com/courses/21786", UrlDownload = "https://uag.instructure.com/courses/21786/content_exports",
+            NivelAsu = "Slow", Version = "v3"};
         
         var taller = new Materia { MateriaId = 3, DepartamentoId = 3, Descripcion = "Creatividad para el diseño - 7032, SM: 2022, Jul – Dic", Periodo = "2221",
-            CodigoClase = "4406", UrlCurso = "https://uag.instructure.com/courses/2115", UrlDownload = "https://uag.instructure.com/courses/2115/content_exports"};
+            CodigoClase = "4406", UrlCurso = "https://uag.instructure.com/courses/2115", UrlDownload = "https://uag.instructure.com/courses/2115/content_exports",
+            NivelAsu = "Haste", Version = "v2"};
 
         modelBuilder.Entity<Materia>().HasData(creatividad, redes, taller);
     }

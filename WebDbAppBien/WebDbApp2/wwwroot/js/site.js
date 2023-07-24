@@ -6,11 +6,12 @@ $(document).ready(function () {
     new DataTable('#buscador', {
         ajax: {url: '/api/Materia/GetMaterias', dataSrc: ''},
         columns: [
+            {data: 'periodo'},
             {data: 'decanato'},
             {data: 'departamento'},
             {data: 'codigoClase'},
-            {data: 'periodo'},
-            {data: 'descripcion'},
+            {data: 'nivelAsu'},
+            {data: 'version'},
             {
                 data: 'urlCurso',
                 "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
